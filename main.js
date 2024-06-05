@@ -1,13 +1,16 @@
 const express = require("express");
+const dontev = require("dotenv");
 const bodyParser = require("body-parser");
 const userRoutes = require("./routers/userRouters.js");
 const soalRoutes = require("./routers/soalRouters.js");
 const rankingsRoutes = require("./routers/rangkingsRouters.js");
 const jawabanRoutes = require("./routers/jawabanRouters.js");
-const port = 3001;
 const app = express();
 const cors = require("cors");
+const env = dontev.config().parsed;
+const port = env.APP_PORT;
 
+require("dotenv").config();
 // JSON DATA
 app.use(bodyParser.json());
 // PORT API

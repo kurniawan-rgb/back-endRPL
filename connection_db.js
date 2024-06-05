@@ -1,11 +1,13 @@
+const dontev = require("dotenv");
 const mysql = require("mysql");
+const env = dontev.config().parsed;
 
 const database = mysql.createConnection({
-  host: "localhost",
-  port: 8889,
-  user: "root",
-  password: "P@ssword23",
-  database: "proyek_rpl",
+  host: env.DB_HOST,
+  port: env.DB_PORT,
+  user: env.DB_USERNAME,
+  password: env.DB_PASSWORD,
+  database: env.DB_DATABASENAME,
 });
 
 database.connect((err) => {
